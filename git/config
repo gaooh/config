@@ -33,9 +33,10 @@
 [pager]
     log = diff-highlight | less
     show = diff-highlight | less
-    diff = diff-highlight | less
+    diff = diff-highlight | lesss
 [core]
-	  excludesfile = $XDG_CONFIG_HOME/git/ignore
+	  excludesfile = ~/.config/git/ignore
+	  editor = atom --wait
 [merge]
   	ff = false
 [pull]
@@ -53,4 +54,4 @@
 [grep]
 	  lineNumber = true
 [commit]
-  	template = $XDG_CONFIG_HOME/git/commit_template
+  	template = ~/.config/git/commit_template
