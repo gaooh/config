@@ -1,0 +1,56 @@
+[user]
+	  name = gaooh
+	  email = asami@viibar.com
+[color]
+    ui = auto
+    status = auto
+    diff = auto
+    branch = auto
+    interactive = auto
+    grep = auto
+[alias]
+    alias = !git config --get-regexp '^alias\\.' | sed 's/alias\\.\\([^ ]*\\) \\(.*\\)/\\1\\\t => \\2/' | sort
+    co = checkout
+    ci = commit -v
+    st = status
+    br = branch
+    gg = grep -H --heading --break
+    graph = log --graph --date=short --decorate=short --pretty=format:'%Cgreen%h %Creset%cd %Cblue%cn %Cred%d %Creset%s'
+    gr = log --graph --date=short --decorate=short --pretty=format:'%Cgreen%h %Creset%cd %Cblue%cn %Cred%d %Creset%s'
+    difff = diff --word-diff
+    day = log --oneline --since='1 days ago'
+    week = log --oneline --since='7 days ago'
+    echo-remote-merged-branches = !git branch --merged | sed -e 's/^  /:/' | xargs echo git push origin
+    merged-branches = "!git branch --merged | egrep -v '\\*|profile\\/*' "
+    delete-merged-branches = !git branch --merged | egrep -v '\\*|profile\\/*' | xargs -I % git branch -d %
+    branch-merge = merge --no-ff
+    dryrun-merge = merge --no-commit --no-ff
+    ps = !git push origin `git rev-parse --abbrev-ref HEAD`
+    pl = !git pull origin `git rev-parse --abbrev-ref HEAD`
+[branch "master"]
+    merge = refs/heads/master
+    remote = origin
+[pager]
+    log = diff-highlight | less
+    show = diff-highlight | less
+    diff = diff-highlight | less
+[core]
+	  excludesfile = $XDG_CONFIG_HOME/git/ignore
+[merge]
+  	ff = false
+[pull]
+	  rebase = preserve
+[mergetool]
+	  keepBackup = true
+[filter "media"]
+	  clean = git-media-clean %f
+	  smudge = git-media-smudge %f
+[filter "lfs"]
+	  clean = git-lfs clean -- %f
+	  smudge = git-lfs smudge -- %f
+	  process = git-lfs filter-process
+	  required = true
+[grep]
+	  lineNumber = true
+[commit]
+  	template = $XDG_CONFIG_HOME/git/commit_template
