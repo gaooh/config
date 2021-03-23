@@ -1,0 +1,17 @@
+# /Users/gaooh/.config/tmuxinator/hopper.yml
+
+name: hopper
+root: ~/ghq/github.com/viibar/hopper
+
+windows:
+  - shell: git st
+  - console:
+      layout: main-vertical
+      panes:
+        - bundle exec rails c
+        - bundle exec guard
+  - log:
+      layout: main-vertical
+      panes:
+        - tail -f log/development.log
+        - tail -f log/test.log

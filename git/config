@@ -33,7 +33,7 @@
 [pager]
     log = diff-highlight | less
     show = diff-highlight | less
-    diff = diff-highlight | lesss
+    diff = diff-highlight | less
 [core]
 	  excludesfile = ~/.config/git/ignore
 	  editor = atom --wait

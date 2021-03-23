@@ -1,0 +1,9 @@
+# /Users/gaooh/.config/tmuxinator/hopper-func.yml
+
+name: hopper-func
+root: ~/ghq/github.com/viibar/hopper-functions
+
+windows:
+  - shell: git st
+  - run: npm run start
+  - ngrok: /Applications/ngrok http -hostname=hopper-gaooh-dev-local.jp.ngrok.io --region jp 7071
